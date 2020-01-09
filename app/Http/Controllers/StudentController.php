@@ -94,7 +94,11 @@ class StudentController extends Controller
         $student->address = $address;
         $student->save();
 
-        return "Student data updated";
+        return Response::json([
+            'result' => 'OK',
+            'message' => 'Student data updated',
+            'response_code' => 200
+        ]);
     }
 
     public function delete($id)
@@ -102,6 +106,10 @@ class StudentController extends Controller
         $student = Student::find($id);
         $student->delete();
 
-        return "Student data deleted";
+        return Response::json([
+            'result' => 'OK',
+            'message' => 'Student data deleted',
+            'response_code' => 200
+        ]);
     }
 }
