@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Student;
 use Illuminate\Http\Request;
+use Response;
 
 class StudentController extends Controller
 {
@@ -14,7 +15,14 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return Student::all();
+        $students = Student::all();
+
+        return Response::json([
+            'result' => 'OK',
+            'student_list' => $students,
+            'message' => 'Success',
+            'response_code' => 200
+        ]);
     }
 
     /**
@@ -29,7 +37,11 @@ class StudentController extends Controller
         $student->address = $request->address;
         $student->save();
 
-        return "Student data inserted";
+        return Response::json([
+            'result' => 'OK',
+            'message' => 'Student data inserted',
+            'response_code' => 200
+        ]);
     }
 
     /**
