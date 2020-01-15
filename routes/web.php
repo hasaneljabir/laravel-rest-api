@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('users.index');
 });
+
+Route::resource('users', 'UserController');
