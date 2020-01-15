@@ -25,7 +25,8 @@ class UserController extends Controller
     {
         $name = $request->name;
         $email = $request->email;
-        $password = $password->password;
+        $address = $request->address;
+        $password = $request->password;
 
         if(empty($name)) {
             return Response::json([
@@ -49,6 +50,7 @@ class UserController extends Controller
             $user = new User;
             $user->name = $name;
             $user->email = $email;
+            $user->address = empty($address) ? '' : $address;
             $user->password = $password;
             $user->save();
 
@@ -64,6 +66,7 @@ class UserController extends Controller
     {
         $name = $request->name;
         $email = $request->email;
+        $address = $request->address;
         $password = $request->password;
 
         $user = User::find($id);
@@ -95,6 +98,7 @@ class UserController extends Controller
         } else {
             $user->name = $name;
             $user->email = $email;
+            $user->address = empty($address) ? '' : $address;
             $user->password = $password;
             $user->save();
 

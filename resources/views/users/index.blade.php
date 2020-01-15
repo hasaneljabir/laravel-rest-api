@@ -26,7 +26,7 @@
         <td>#</td>
         <td>Name</td>
         <td>Email</td>
-        <td>Password</td>
+        <td>Address</td>
         <td>Manage Data</td>
       </tr>
     </thead>
@@ -36,7 +36,11 @@
         <td>{{$index+1}}</td>
         <td>{{$user->name}}</td>
         <td>{{$user->email}}</td>
-        <td>{{$user->password}}</td>
+        @if(empty($user->address))
+        <td>-</td>
+        @else
+        <td>{{$user->address}}</td>
+        @endif
         <td>
           <div class="row justify-content-center">
             <a href="{{ route('users.edit', $user->id)}}" class="btn btn-success mr-1">Edit</a>

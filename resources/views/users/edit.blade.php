@@ -28,6 +28,10 @@
             <input type="email" class="form-control" name="email" value="{{ $user->email }}"/>
           </div>
           <div class="form-group">
+            <label>Address</label>
+            <input type="text" class="form-control" name="address" value="{{ $user->address }}" />
+          </div>
+          <div class="form-group">
             <label>Password</label>
             <input type="text" class="form-control" name="password" value="{{ $user->password }}"/>
           </div>
