@@ -1,9 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\web;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
@@ -29,11 +30,6 @@ class UserController extends Controller
         $users = User::create($validation);
 
         return redirect('/users')->with('success', 'User added');
-    }
-
-    public function show($id)
-    {
-        //
     }
 
     public function edit(User $user)
